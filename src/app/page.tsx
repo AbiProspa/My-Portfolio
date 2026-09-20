@@ -18,7 +18,7 @@ const pick = (...routes: string[]) =>
 
 export default function Page() {
   const featured = pick("/project-2", "/project-1", "/project-7", "/project-8");
-  const caseStudies = pick("/project-2", "/project-1");
+  const caseStudies = pick("/project-3", "/project-1");
 
   return (
     <>
@@ -290,7 +290,10 @@ export default function Page() {
             <div className="col-lg-6" key={project.route}>
               <Link href={project.route} className="mil-blog-card mil-mb-60">
                 <div className="mil-cover-frame mil-up">
-                  <img src={project.cover} alt={project.title} />
+                  <img
+                    src={project.route === "/project-3" ? "/img/works/devnnova-case-study.png" : project.cover}
+                    alt={project.title}
+                  />
                 </div>
                 <div className="mil-post-descr">
                   <div className="mil-labels mil-up mil-mb-30">
