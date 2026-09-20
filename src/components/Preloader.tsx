@@ -15,7 +15,7 @@ export default function Preloader() {
         <div className="mil-pos-abs mil-animation-2">
           <div className="mil-reveal-frame">
             <p className="mil-reveal-box"></p>
-            <p className="mil-h3 mil-muted mil-thin">Abiodun Prosper</p>
+            <p className="mil-h3 mil-muted mil-thin">Abi Prospa</p>
           </div>
         </div>
       </div>

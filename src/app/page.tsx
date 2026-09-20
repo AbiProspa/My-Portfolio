@@ -80,25 +80,34 @@ export default function Page() {
           <div className="col-lg-6 col-xl-5">
             <div className="mil-mb-90">
               <h2 className="mil-up mil-mb-60">
-                Product-minded
+                Hi, I&apos;m
                 <br />
-                <span className="mil-thin">Engineering</span>
+                Abiodun
+                <span className="mil-thin">Prosper</span>
               </h2>
               <p className="mil-up mil-mb-30">
-I&apos;m a full-stack developer with 5+ years building digital products, and hands-on software development experience since 2020. My work spans fintech, eCommerce, food and edtech, combining React and React Native interfaces with Node.js, NestJS and Laravel services.
+                I&apos;ve been building software since 2020 — five years of shipping web and mobile products across
+                fintech, eCommerce, food and edtech. React and React Native on the front, Node.js, NestJS and Laravel
+                behind them, all in TypeScript.
+              </p>
+              <p className="mil-up mil-mb-30">
+                I started out in UI/UX, and that still shapes how I work: I&apos;d rather understand the problem and
+                sketch the flow before writing the first component. It means fewer gaps between what gets designed and
+                what actually ships.
               </p>
               <p className="mil-up mil-mb-60">
-A UI/UX background helps me connect product requirements, interface design and implementation. I like owning a feature from the first problem-solving conversation through development, integration and release.
+                What I enjoy most is owning a feature end to end — the first problem-solving conversation, the build, the
+                integrations, the release. Right now I&apos;m based in Lagos and working remotely with teams anywhere.
               </p>
               <div className="mil-about-quote">
                 <div className="mil-avatar mil-up">
-                  <img src="/img/faces/customers/2.jpg" alt="Abiodun Prosper" />
+                  <img src="/img/photo/Prospa.jpg" alt="Abiodun Prosper" />
                 </div>
                 <h6 className="mil-quote mil-up">
-                  Based in Lagos,
-                  <span className="mil-thin">Nigeria —</span>
-                  open to
-                  <span className="mil-thin">remote work worldwide</span>
+                  Design through
+                  <span className="mil-thin">to release —</span>
+                  one person,
+                  <span className="mil-thin">end to end.</span>
                 </h6>
               </div>
             </div>
@@ -107,7 +116,7 @@ A UI/UX background helps me connect product requirements, interface design and i
             <div className="mil-about-photo mil-mb-90">
               <div className="mil-lines-place"></div>
               <div className="mil-up mil-img-frame" style={{ paddingBottom: "160%" }}>
-                <img src="/img/photo/1.jpg" alt="Abiodun Prosper at work" className="mil-scale" data-value-1="1" data-value-2="1.2" />
+                <img src="/img/photo/Prospa.jpg" alt="Abiodun Prosper" className="mil-scale" data-value-1="1" data-value-2="1.2" />
               </div>
             </div>
           </div>
