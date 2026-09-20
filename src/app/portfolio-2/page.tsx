@@ -1,11 +1,24 @@
-/* Converted from the Ashley HTML template — markup preserved verbatim. */
+/* Converted from the Ashley HTML template — markup preserved, copy is mine.
+   `layout` repeats the template's six-card rhythm across however many
+   projects there are, so the mixed column widths and parallax stay intact. */
 import Link from "next/link";
 import Footer from "@/components/Footer";
-
 import type { Metadata } from "next";
+import { projects, site } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Ashley" };
+export const metadata: Metadata = {
+  title: `All projects | ${site.name}`,
+  description: "Every project — full-stack web and mobile work across fintech, food, relocation, NGO and business operations.",
+};
 
+const layout = [
+  { col: "col-lg-6", parallax: false, zoom: true },
+  { col: "col-lg-5", parallax: true, zoom: false },
+  { col: "col-lg-12", parallax: false, zoom: false },
+  { col: "col-lg-5", parallax: true, zoom: false },
+  { col: "col-lg-6", parallax: false, zoom: false },
+  { col: "col-lg-12", parallax: false, zoom: false },
+];
 
 export default function Page() {
   return (
@@ -26,13 +39,13 @@ export default function Page() {
             </li>
           </ul>
           <h1 className="mil-mb-60">
-            Designing a
+            Everything
             <br />
-            Better
-            <span className="mil-thin">World Today</span>
+            I&apos;ve
+            <span className="mil-thin">built</span>
           </h1>
           <a href="#portfolio" className="mil-link mil-dark mil-arrow-place mil-down-arrow">
-            <span>Our works</span>
+            <span>All projects</span>
           </a>
         </div>
       </div>
@@ -44,102 +57,34 @@ export default function Page() {
         <div className="mil-lines-place"></div>
         <div className="mil-lines-place mil-lines-long"></div>
         <div className="row justify-content-between align-items-end">
-          <div className="col-lg-6">
-            <Link href="/portfolio-1" className="mil-portfolio-item mil-more mil-mb-60">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover mil-scale" data-value-1="1.2" data-value-2="1">
-                  <img src="/img/works/1.jpg" alt="cover" />
-                </div>
+          {projects.map((project, i) => {
+            const shape = layout[i % layout.length];
+            return (
+              <div className={shape.col} key={project.route}>
+                <Link
+                  href={project.route}
+                  className={`mil-portfolio-item mil-more${shape.parallax ? " mil-parallax" : ""} mil-mb-60`}
+                  {...(shape.parallax ? { "data-value-1": "-30", "data-value-2": "0" } : {})}
+                >
+                  <div className="mil-cover-frame mil-hori mil-up">
+                    <div
+                      className={`mil-cover${shape.zoom ? " mil-scale" : ""}`}
+                      {...(shape.zoom ? { "data-value-1": "1.2", "data-value-2": "1" } : {})}
+                    >
+                      <img src={project.cover} alt={project.title} />
+                    </div>
+                  </div>
+                  <div className="mil-descr">
+                    <div className="mil-labels mil-up mil-mb-15">
+                      <div className="mil-label mil-upper mil-accent">{project.category}</div>
+                      <div className="mil-label mil-upper">{project.status ?? project.client}</div>
+                    </div>
+                    <h4 className="mil-up">{project.title}</h4>
+                  </div>
+                </Link>
               </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Branding</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Interior design studio</h4>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-5">
-            <Link href="/project-2" className="mil-portfolio-item mil-more mil-parallax mil-mb-60" data-value-1="-30" data-value-2="0">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover">
-                  <img src="/img/works/2.jpg" alt="cover" />
-                </div>
-              </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Design</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Home Security Camera</h4>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-12">
-            <Link href="/project-3" className="mil-portfolio-item mil-more mil-mb-60">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover">
-                  <img src="/img/works/3.jpg" alt="cover" />
-                </div>
-              </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Photography</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Kemia Honest Skincare</h4>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-5">
-            <Link href="/project-4" className="mil-portfolio-item mil-more mil-parallax mil-mb-60" data-value-1="-30" data-value-2="0">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover">
-                  <img src="/img/works/4.jpg" alt="cover" />
-                </div>
-              </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Design</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Cascade of Lava</h4>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-6">
-            <Link href="/project-5" className="mil-portfolio-item mil-more mil-mb-60">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover">
-                  <img src="/img/works/5.jpg" alt="cover" />
-                </div>
-              </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Design</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Air Pro by Molekule</h4>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-12">
-            <Link href="/project-6" className="mil-portfolio-item mil-more mil-mb-60">
-              <div className="mil-cover-frame mil-hori mil-up">
-                <div className="mil-cover">
-                  <img src="/img/works/6.jpg" alt="cover" />
-                </div>
-              </div>
-              <div className="mil-descr">
-                <div className="mil-labels mil-up mil-mb-15">
-                  <div className="mil-label mil-upper mil-accent">Design</div>
-                  <div className="mil-label mil-upper">may 24 2023</div>
-                </div>
-                <h4 className="mil-up">Tony's Chocolonely</h4>
-              </div>
-            </Link>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -150,24 +95,24 @@ export default function Page() {
         <div className="row">
           <div className="col-lg-10">
             <span className="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">
-              Looking to make your mark? We'll help you turn
+              Looking for someone to own a feature end to end?
               <br />
-              your project into a success story.
+              That is the part of the job I enjoy most.
             </span>
           </div>
         </div>
         <div className="mil-center">
           <h2 className="mil-up mil-mb-60">
-            Ready to bring your
-            <span className="mil-thin">ideas to</span>
-            life?
+            Ready to build
+            <span className="mil-thin">something</span>
+            together?
             <br />
-            We're
-            <span className="mil-thin">here to help</span>
+            I&apos;m
+            <span className="mil-thin">available now</span>
           </h2>
           <div className="mil-up">
             <Link href="/contact" className="mil-button mil-arrow-place">
-              <span>Contact us</span>
+              <span>Contact me</span>
             </Link>
           </div>
         </div>

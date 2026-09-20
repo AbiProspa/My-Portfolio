@@ -9,9 +9,29 @@ import Preloader from "@/components/Preloader";
 import MenuFrame from "@/components/MenuFrame";
 import Frame from "@/components/Frame";
 import TemplateRuntime from "@/components/TemplateRuntime";
+import { site } from "@/lib/data";
+import { siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: { default: "Ashley", template: "%s" },
+  metadataBase: new URL(siteUrl),
+  title: { default: `${site.name} | ${site.role}`, template: "%s" },
+  description:
+    "Abiodun Prosper is a Lagos-based full-stack developer building web and mobile products with TypeScript, React, React Native, Next.js, NestJS and Laravel.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${site.name} | ${site.role}`,
+    description: "Full-stack developer building web and mobile products across fintech, commerce and newcomer services.",
+    type: "website",
+    url: "/",
+    siteName: site.name,
+    locale: "en_NG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} | ${site.role}`,
+    description: "Full-stack developer building web and mobile products across fintech, commerce and newcomer services.",
+    creator: "@Abi_Prospa",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

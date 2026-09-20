@@ -1,11 +1,15 @@
-/* Converted from the Ashley HTML template — markup preserved verbatim. */
+/* Converted from the Ashley HTML template — markup preserved, copy is mine.
+   The four hand-written service cards become a map over `services`; the first
+   keeps the template's mil-offset so the pair staggers as designed. */
 import Link from "next/link";
 import Footer from "@/components/Footer";
-
 import type { Metadata } from "next";
+import { services, site } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Ashley" };
-
+export const metadata: Metadata = {
+  title: `Services | ${site.name}`,
+  description: "Full-stack product development, mobile apps, backend APIs and integrations, and product UI/UX.",
+};
 
 export default function Page() {
   return (
@@ -31,11 +35,11 @@ export default function Page() {
                 This is
                 <span className="mil-thin">what</span>
                 <br />
-                we do
+                I do
                 <span className="mil-thin">best</span>
               </h1>
               <a href="#services" className="mil-link mil-accent mil-arrow-place mil-down-arrow">
-                <span>Our services</span>
+                <span>My services</span>
               </a>
             </div>
           </div>
@@ -52,90 +56,29 @@ export default function Page() {
               </div>
               <div className="col-lg-7">
                 <div className="row">
-                  <div className="col-md-6 col-lg-6">
-                    <Link href="/service" className="mil-service-card-lg mil-more mil-accent-cursor mil-offset">
-                      <h4 className="mil-muted mil-up mil-mb-30">
-                        Branding and
-                        <br />
-                        Identity Design
-                      </h4>
-                      <p className="mil-descr mil-light-soft mil-up mil-mb-30">
-                        Our creative agency is a team of professionals focused on helping your brand grow.
-                      </p>
-                      <ul className="mil-service-list mil-light mil-mb-30">
-                        <li className="mil-up">UX Audits</li>
-                        <li className="mil-up">Design thinking</li>
-                        <li className="mil-up">Methodologies</li>
-                        <li className="mil-up">Wireframing</li>
-                      </ul>
-                      <div className="mil-link mil-accent mil-arrow-place mil-up">
-                        <span>Read more</span>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="col-md-6 col-lg-6">
-                    <Link href="/service" className="mil-service-card-lg mil-more mil-accent-cursor">
-                      <h4 className="mil-muted mil-up mil-mb-30">
-                        Website Design
-                        <br />
-                        and Development
-                      </h4>
-                      <p className="mil-descr mil-light-soft mil-up mil-mb-30">
-                        Our creative agency is a team of professionals focused on helping your brand grow.
-                      </p>
-                      <ul className="mil-service-list mil-light mil-mb-30">
-                        <li className="mil-up">UX Audits</li>
-                        <li className="mil-up">Design thinking</li>
-                        <li className="mil-up">Methodologies</li>
-                        <li className="mil-up">Wireframing</li>
-                      </ul>
-                      <div className="mil-link mil-accent mil-arrow-place mil-up">
-                        <span>Read more</span>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="col-md-6 col-lg-6">
-                    <Link href="/service" className="mil-service-card-lg mil-more mil-accent-cursor mil-offset">
-                      <h4 className="mil-muted mil-up mil-mb-30">
-                        Advertising and
-                        <br />
-                        Marketing Campaigns
-                      </h4>
-                      <p className="mil-descr mil-light-soft mil-up mil-mb-30">
-                        Our creative agency is a team of professionals focused on helping your brand grow.
-                      </p>
-                      <ul className="mil-service-list mil-light mil-mb-30">
-                        <li className="mil-up">UX Audits</li>
-                        <li className="mil-up">Design thinking</li>
-                        <li className="mil-up">Methodologies</li>
-                        <li className="mil-up">Wireframing</li>
-                      </ul>
-                      <div className="mil-link mil-accent mil-arrow-place mil-up">
-                        <span>Read more</span>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="col-md-6 col-lg-6">
-                    <Link href="/service" className="mil-service-card-lg mil-more mil-accent-cursor">
-                      <h4 className="mil-muted mil-up mil-mb-30">
-                        Creative Consulting
-                        <br />
-                        Concept Development
-                      </h4>
-                      <p className="mil-descr mil-light-soft mil-up mil-mb-30">
-                        Our creative agency is a team of professionals focused on helping your brand grow.
-                      </p>
-                      <ul className="mil-service-list mil-light mil-mb-30">
-                        <li className="mil-up">UX Audits</li>
-                        <li className="mil-up">Design thinking</li>
-                        <li className="mil-up">Methodologies</li>
-                        <li className="mil-up">Wireframing</li>
-                      </ul>
-                      <div className="mil-link mil-accent mil-arrow-place mil-up">
-                        <span>Read more</span>
-                      </div>
-                    </Link>
-                  </div>
+                  {services.map((service, i) => (
+                    <div className="col-md-6 col-lg-6" key={service.titleMain}>
+                      <Link
+                        href={service.href}
+                        className={`mil-service-card-lg mil-more mil-accent-cursor${i % 2 === 0 ? " mil-offset" : ""}`}
+                      >
+                        <h4 className="mil-muted mil-up mil-mb-30">
+                          {service.titleMain}
+                          <br />
+                          {service.titleRest}
+                        </h4>
+                        <p className="mil-descr mil-light-soft mil-up mil-mb-30">{service.short}</p>
+                        <ul className="mil-service-list mil-light mil-mb-30">
+                          {service.points.map((point) => (
+                            <li className="mil-up" key={point}>{point}</li>
+                          ))}
+                        </ul>
+                        <div className="mil-link mil-accent mil-arrow-place mil-up">
+                          <span>Read more</span>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -150,23 +93,23 @@ export default function Page() {
         <div className="row">
           <div className="col-lg-10">
             <span className="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">
-              Looking to make your mark? We'll help you turn
+              Based in {site.location}, working with teams anywhere.
               <br />
-              your project into a success story.
+              {site.availability}.
             </span>
           </div>
         </div>
         <div className="mil-center">
           <h2 className="mil-up mil-mb-60">
-            Let’s make an
-            <span className="mil-thin">impact</span>
+            Let&rsquo;s talk about
+            <span className="mil-thin">what</span>
             <br />
-            together. Ready
-            <span className="mil-thin">when you are</span>
+            you&rsquo;re
+            <span className="mil-thin">building</span>
           </h2>
           <div className="mil-up">
             <Link href="/contact" className="mil-button mil-arrow-place">
-              <span>Contact us</span>
+              <span>Contact me</span>
             </Link>
           </div>
         </div>

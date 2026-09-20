@@ -1,13 +1,58 @@
-/* Converted from the Ashley HTML template — markup preserved verbatim. */
+/* Converted from the Ashley HTML template — markup preserved, copy is mine.
+   The template's pricing section is dropped: I don't publish fixed package
+   prices, and inventing them would be worse than leaving them out. The
+   accordion and "other services" markup is kept exactly as the template has it. */
 import Link from "next/link";
 import Footer from "@/components/Footer";
-
 import type { Metadata } from "next";
+import { services, site } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Ashley" };
+export const metadata: Metadata = {
+  title: `Full-stack product development | ${site.name}`,
+  description: "How I work: discovery, interface, API, integrations and release — with the stack and practices behind each stage.",
+};
 
+const approach = [
+  {
+    head: "Discovery and scoping",
+    body: [
+      "Before any code, I want to understand the job the product is doing and for whom. That means reading the existing flows, asking what success looks like, and agreeing what is in and out of the first release.",
+      "Coming from a UI/UX background, I tend to sketch the flow in Figma first. It is far cheaper to move a step around in a prototype than in a shipped screen.",
+    ],
+  },
+  {
+    head: "Interface development",
+    body: [
+      "React and Next.js on the web, React Native on mobile, typed end to end with TypeScript. I build mobile-first, because most of the products I work on are opened on a phone before a desktop.",
+      "Components come out of a design system rather than one-off styles, so the interface stays consistent as the product grows.",
+    ],
+  },
+  {
+    head: "APIs and data",
+    body: [
+      "Node.js, NestJS, Express or Laravel over PostgreSQL, MySQL or MongoDB, with Redis where caching earns its place. I design REST endpoints around the flows the client actually needs, not around table shapes.",
+      "Authentication is handled with JWT and OAuth 2.0, and I have shipped Paystack and Flutterwave payment integrations into live checkout flows.",
+    ],
+  },
+  {
+    head: "Integrations and automation",
+    body: [
+      "A lot of product value sits between systems. I have wired OpenAI and Claude APIs into customer-support and WhatsApp automation workflows, and used n8n to connect business processes that would otherwise be manual.",
+      "The aim is always the same: remove a repetitive human step without hiding what the system is doing.",
+    ],
+  },
+  {
+    head: "Release and handover",
+    body: [
+      "Git-based workflows, CI/CD, and admin or CMS tooling so the team can manage content and operations without coming back to a developer for every change.",
+      "I document what I build and hand it over properly — an API reference and a Postman collection beat a long conversation.",
+    ],
+  },
+];
 
 export default function Page() {
+  const others = services.slice(1);
+
   return (
     <>
     {/* banner */}
@@ -29,10 +74,9 @@ export default function Page() {
             </li>
           </ul>
           <h1 className="mil-mb-60">
-            Website
-            <span className="mil-thin">Design</span>
+            Full-Stack
+            <span className="mil-thin">Product</span>
             <br />
-            and
             <span className="mil-thin">Development</span>
           </h1>
           <a href="#service" className="mil-link mil-dark mil-arrow-place mil-down-arrow">
@@ -48,14 +92,14 @@ export default function Page() {
         <div className="row justify-content-between">
           <div className="col-lg-4 mil-relative mil-mb-90">
             <h4 className="mil-up mil-mb-30">
-              Your
+              My
               <span className="mil-thin">Approach</span>
               <br />
               and
               <span className="mil-thin">Work Specifics</span>
             </h4>
             <p className="mil-up mil-mb-30">
-              At our agency, we have a unique approach to web design and development. We believe in creating websites that not only look great but also perform well in terms of user experience, functionality, and search engine optimization.
+              I build products end to end — interface, API, integrations and release — rather than handing work over a wall halfway through. That means fewer gaps between what was designed and what ships.
             </p>
             <div className="mil-up">
               <Link href="/portfolio-3" className="mil-link mil-dark mil-arrow-place">
@@ -64,228 +108,27 @@ export default function Page() {
             </div>
           </div>
           <div className="col-lg-6">
-            <div className="mil-accordion-group mil-up">
-              <div className="mil-accordion-menu">
-                <p className="mil-accordion-head">UX Audits</p>
-                <div className="mil-symbol mil-h3">
-                  <div className="mil-plus">+</div>
-                  <div className="mil-minus">-</div>
+            {approach.map((item) => (
+              <div className="mil-accordion-group mil-up" key={item.head}>
+                <div className="mil-accordion-menu">
+                  <p className="mil-accordion-head">{item.head}</p>
+                  <div className="mil-symbol mil-h3">
+                    <div className="mil-plus">+</div>
+                    <div className="mil-minus">-</div>
+                  </div>
+                </div>
+                <div className="mil-accordion-content">
+                  {item.body.map((paragraph, i) => (
+                    <p className="mil-mb-30" key={i}>{paragraph}</p>
+                  ))}
                 </div>
               </div>
-              <div className="mil-accordion-content">
-                <p className="mil-mb-30">
-                  A UX audit is a service that evaluates the user experience (UX) of a website. It involves analyzing the website's design, functionality, and content to identify areas of improvement that can enhance the user's overall experience.
-                </p>
-                <p className="mil-mb-30">
-                  During a UX audit, a team of UX experts will conduct a thorough review of the website and provide a comprehensive report that outlines specific recommendations for improving the website's usability, accessibility, and overall user experience.
-                </p>
-                <p className="mil-mb-30">
-                  The audit may cover various aspects of the website, such as navigation, layout, visual design, content structure, and mobile responsiveness. The goal is to identify any pain points or obstacles that users may encounter while browsing the website and provide actionable recommendations to improve their experience.
-                </p>
-                <p className="mil-mb-30">
-                  In summary, a UX audit can help website owners identify areas of improvement that can enhance their website's user experience and increase user engagement and satisfaction.
-                </p>
-              </div>
-            </div>
-            <div className="mil-accordion-group mil-up">
-              <div className="mil-accordion-menu">
-                <p className="mil-accordion-head">Design thinking</p>
-                <div className="mil-symbol mil-h3">
-                  <div className="mil-plus">+</div>
-                  <div className="mil-minus">-</div>
-                </div>
-              </div>
-              <div className="mil-accordion-content">
-                <p className="mil-mb-30">
-                  Design thinking is a problem-solving approach that emphasizes empathy, creativity, and collaboration. It involves understanding the needs and perspectives of users, identifying and defining the problem, generating multiple possible solutions, prototyping and testing those solutions, and iterating based on feedback.
-                </p>
-                <p className="mil-mb-30">
-                  Design thinking encourages a human-centered approach to innovation and is often used in fields such as product design, user experience (UX) design, and business strategy to create user-centric and innovative solutions. It promotes a mindset that embraces experimentation, iteration, and continuous learning throughout the design process.
-                </p>
-              </div>
-            </div>
-            <div className="mil-accordion-group mil-up">
-              <div className="mil-accordion-menu">
-                <p className="mil-accordion-head">wireframing</p>
-                <div className="mil-symbol mil-h3">
-                  <div className="mil-plus">+</div>
-                  <div className="mil-minus">-</div>
-                </div>
-              </div>
-              <div className="mil-accordion-content">
-                <p className="mil-mb-30">
-                  Wireframing is a vital step in web design where a visual representation of a website's structure is created. It focuses on layout and user experience, using basic shapes and lines to outline elements like headers, menus, and content sections. Wireframes establish the website's architecture and functionality, facilitating communication between designers, developers, and clients. They serve as a blueprint for user-friendly websites, setting the foundation for design and development.
-                </p>
-              </div>
-            </div>
-            <div className="mil-accordion-group mil-up">
-              <div className="mil-accordion-menu">
-                <p className="mil-accordion-head">Aesthetics</p>
-                <div className="mil-symbol mil-h3">
-                  <div className="mil-plus">+</div>
-                  <div className="mil-minus">-</div>
-                </div>
-              </div>
-              <div className="mil-accordion-content">
-                <p className="mil-mb-30">
-                  Aesthetics in web design focus on the visual appeal of a website, incorporating elements like colors, typography, images, and layout. It aims to create an engaging and visually pleasing user experience that reflects the brand identity and purpose of the website. A well-designed aesthetic balances visual appeal with functionality, leaving a lasting impression on users.
-                </p>
-              </div>
-            </div>
-            <div className="mil-accordion-group mil-up">
-              <div className="mil-accordion-menu">
-                <p className="mil-accordion-head">Methodologies</p>
-                <div className="mil-symbol mil-h3">
-                  <div className="mil-plus">+</div>
-                  <div className="mil-minus">-</div>
-                </div>
-              </div>
-              <div className="mil-accordion-content">
-                <p className="mil-mb-30">
-                  Libero quam alias tempora facilis necessitatibus quis officiis voluptatem architecto harum exercitationem quidem illum eligendi. Veniam non vitae, nemo dolor tempora, necessitatibus enim sapiente quam voluptas architecto minima omnis sequi aperiam aliquam vel quo reprehenderit, tempore tenetur. Architecto dolorem assumenda voluptas, odio nemo vero illo praesentium pariatur, ut perspiciatis, est itaque minus ratione vitae laboriosam molestiae.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
     {/* service end */}
-    {/* prices */}
-    <section className="mil-dark-bg">
-      <div className="mi-invert-fix">
-        <div className="container mil-p-120-120">
-          <div className="mil-center">
-            <h2 className="mil-muted mil-up mil-mb-30">
-              Reasonable
-              <span className="mil-thin">prices</span>
-              <br />
-              for innovative
-              <span className="mil-thin">solutions</span>
-            </h2>
-            <p className="mil-light-soft mil-up mil-mb-120">
-              At our agency, we have a unique approach to web design and development.
-              <br />
-              We believe in creating in terms of user experience, functionality.
-            </p>
-          </div>
-          <Link href="/contact" className="mil-price-card mil-choose mil-accent-cursor mil-up">
-            <div className="row align-items-center">
-              <div className="col-lg-2">
-                <div className="mil-price-number mil-mb-30">
-                  <span className="mil-muted mil-thin">$</span>
-                  <span className="mil-accent">19</span>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <h5 className="mil-muted mil-mb-30">
-                  Tailored Designs for
-                  <br />
-                  Every Budget
-                </h5>
-              </div>
-              <div className="col-lg-4">
-                <p className="mil-light-soft mil-mb-30">
-                  Tomlo commodi, mollitia atque betae esse itaque a, voluptatibus, suscipit beatae officiis omnis.
-                </p>
-              </div>
-              <div className="col-lg-2">
-                <div className="mil-adaptive-right mil-mb-30">
-                  <div className="mil-button mil-icon-button-sm mil-arrow-place"></div>
-                </div>
-              </div>
-            </div>
-          </Link>
-          <Link href="/contact" className="mil-price-card mil-choose mil-accent-cursor mil-up">
-            <div className="row align-items-center">
-              <div className="col-lg-2">
-                <div className="mil-price-number mil-mb-30">
-                  <span className="mil-muted mil-thin">$</span>
-                  <span className="mil-accent">29</span>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <h5 className="mil-muted mil-mb-30">
-                  Inspiring and Customized
-                  <br />
-                  Design Solutions
-                </h5>
-              </div>
-              <div className="col-lg-4">
-                <p className="mil-light-soft mil-mb-30">
-                  Tomlo commodi, mollitia atque betae esse itaque a, voluptatibus, suscipit beatae officiis omnis.
-                </p>
-              </div>
-              <div className="col-lg-2">
-                <div className="mil-adaptive-right mil-mb-30">
-                  <div className="mil-button mil-icon-button-sm mil-arrow-place"></div>
-                </div>
-              </div>
-            </div>
-          </Link>
-          <Link href="/contact" className="mil-price-card mil-choose mil-accent-cursor mil-up">
-            <div className="row align-items-center">
-              <div className="col-lg-2">
-                <div className="mil-price-number mil-mb-30">
-                  <span className="mil-muted mil-thin">$</span>
-                  <span className="mil-accent">49</span>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <h5 className="mil-muted mil-mb-30">
-                  Unleashing the Beauty of Space
-                  <br />
-                  with Unique Designs
-                </h5>
-              </div>
-              <div className="col-lg-4">
-                <p className="mil-light-soft mil-mb-30">
-                  Tomlo commodi, mollitia atque betae esse itaque a, voluptatibus, suscipit beatae officiis omnis.
-                </p>
-              </div>
-              <div className="col-lg-2">
-                <div className="mil-adaptive-right mil-mb-30">
-                  <div className="mil-button mil-icon-button-sm mil-arrow-place"></div>
-                </div>
-              </div>
-            </div>
-          </Link>
-          <Link href="/contact" className="mil-price-card mil-choose mil-accent-cursor mil-up mil-mb-60">
-            <div className="row align-items-center">
-              <div className="col-lg-2">
-                <div className="mil-price-number mil-mb-30">
-                  <span className="mil-muted mil-thin">$</span>
-                  <span className="mil-accent">199</span>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <h5 className="mil-muted mil-mb-30">
-                  Exquisite Design Concepts
-                  <br />
-                  for Discerning Clients
-                </h5>
-              </div>
-              <div className="col-lg-4">
-                <p className="mil-light-soft mil-mb-30">
-                  Tomlo commodi, mollitia atque betae esse itaque a, voluptatibus, suscipit beatae officiis omnis.
-                </p>
-              </div>
-              <div className="col-lg-2">
-                <div className="mil-adaptive-right mil-mb-30">
-                  <div className="mil-button mil-icon-button-sm mil-arrow-place"></div>
-                </div>
-              </div>
-            </div>
-          </Link>
-          <div className="mil-center">
-            <Link href="/contact" className="mil-button  mil-arrow-place">
-              <span>individual solution</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-    {/* prices end */}
     {/* other services */}
     <section>
       <div className="container mil-p-120-90">
@@ -302,63 +145,26 @@ export default function Page() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4">
-            <Link href="/service" className="mil-service-card-lg mil-other-card mil-more mil-mb-30">
-              <h4 className="mil-up mil-mb-30">
-                Branding and
-                <br />
-                Identity Design
-              </h4>
-              <p className="mil-descr mil-up mil-mb-30">Our creative agency is a team of professionals focused on helping your brand grow.</p>
-              <ul className="mil-service-list mil-dark mil-mb-30">
-                <li className="mil-up">UX Audits</li>
-                <li className="mil-up">Design thinking</li>
-                <li className="mil-up">Methodologies</li>
-                <li className="mil-up">Wireframing</li>
-              </ul>
-              <div className="mil-link mil-dark mil-arrow-place mil-up">
-                <span>Read more</span>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-4">
-            <Link href="/service" className="mil-service-card-lg mil-other-card mil-more mil-mb-30">
-              <h4 className="mil-up mil-mb-30">
-                Advertising
-                <br />
-                and Marketing
-              </h4>
-              <p className="mil-descr mil-up mil-mb-30">Our creative agency is a team of professionals focused on helping your brand grow.</p>
-              <ul className="mil-service-list mil-dark mil-mb-30">
-                <li className="mil-up">UX Audits</li>
-                <li className="mil-up">Design thinking</li>
-                <li className="mil-up">Methodologies</li>
-                <li className="mil-up">Wireframing</li>
-              </ul>
-              <div className="mil-link mil-dark mil-arrow-place mil-up">
-                <span>Read more</span>
-              </div>
-            </Link>
-          </div>
-          <div className="col-lg-4">
-            <Link href="/service" className="mil-service-card-lg mil-other-card mil-more mil-mb-30">
-              <h4 className="mil-up mil-mb-30">
-                Creative
-                <br />
-                Consulting
-              </h4>
-              <p className="mil-descr mil-up mil-mb-30">Our creative agency is a team of professionals focused on helping your brand grow.</p>
-              <ul className="mil-service-list mil-dark mil-mb-30">
-                <li className="mil-up">UX Audits</li>
-                <li className="mil-up">Design thinking</li>
-                <li className="mil-up">Methodologies</li>
-                <li className="mil-up">Wireframing</li>
-              </ul>
-              <div className="mil-link mil-dark mil-arrow-place mil-up">
-                <span>Read more</span>
-              </div>
-            </Link>
-          </div>
+          {others.map((service) => (
+            <div className="col-lg-4" key={service.titleMain}>
+              <Link href={service.href} className="mil-service-card-lg mil-other-card mil-more mil-mb-30">
+                <h4 className="mil-up mil-mb-30">
+                  {service.titleMain}
+                  <br />
+                  {service.titleRest}
+                </h4>
+                <p className="mil-descr mil-up mil-mb-30">{service.short}</p>
+                <ul className="mil-service-list mil-dark mil-mb-30">
+                  {service.points.map((point) => (
+                    <li className="mil-up" key={point}>{point}</li>
+                  ))}
+                </ul>
+                <div className="mil-link mil-dark mil-arrow-place mil-up">
+                  <span>Read more</span>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

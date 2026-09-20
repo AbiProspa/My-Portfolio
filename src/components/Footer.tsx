@@ -1,5 +1,8 @@
-/* Converted from the Ashley HTML template — markup preserved verbatim. */
+/* Converted from the Ashley HTML template — markup preserved, copy is mine.
+   The newsletter form is replaced by a direct email call to action, since
+   there is no list to subscribe to. */
 import Link from "next/link";
+import { site, socials } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -9,12 +12,11 @@ export default function Footer() {
         <div className="container mil-p-120-60">
           <div className="row justify-content-between">
             <div className="col-md-4 col-lg-4 mil-mb-60">
-              <div className="mil-muted mil-logo mil-up mil-mb-30">Ashley.</div>
-              <p className="mil-light-soft mil-up mil-mb-30">Subscribe our newsletter:</p>
-              <form className="mil-subscribe-form mil-up">
-                <input type="text" placeholder="Enter our email" />
-                <button type="submit" className="mil-button mil-icon-button-sm mil-arrow-place"></button>
-              </form>
+              <div className="mil-muted mil-logo mil-up mil-mb-30">{site.name}.</div>
+              <p className="mil-light-soft mil-up mil-mb-30">Hiring, or building something? Let&apos;s talk:</p>
+              <a href={`mailto:${site.email}`} className="mil-button mil-arrow-place mil-up">
+                <span>{site.email}</span>
+              </a>
             </div>
             <div className="col-md-7 col-lg-6">
               <div className="row justify-content-end">
@@ -31,10 +33,10 @@ export default function Footer() {
                         <Link href="/services">Services</Link>
                       </li>
                       <li className="mil-up">
-                        <Link href="/contact">Contact</Link>
+                        <Link href="/team">Experience</Link>
                       </li>
                       <li className="mil-up">
-                        <Link href="/blog">Blog</Link>
+                        <Link href="/contact">Contact</Link>
                       </li>
                     </ul>
                   </nav>
@@ -42,16 +44,16 @@ export default function Footer() {
                 <div className="col-md-6 col-lg-5">
                   <ul className="mil-menu-list mil-up mil-mb-60">
                     <li>
-                      <a href="#." className="mil-light-soft">Privacy Policy</a>
+                      <a href={site.github} target="_blank" rel="noreferrer" className="mil-light-soft">GitHub</a>
                     </li>
                     <li>
-                      <a href="#." className="mil-light-soft">Terms and conditions</a>
+                      <a href={site.linkedin} target="_blank" rel="noreferrer" className="mil-light-soft">LinkedIn</a>
                     </li>
                     <li>
-                      <a href="#." className="mil-light-soft">Cookie Policy</a>
+                      <a href={site.cv} download className="mil-light-soft">Download CV</a>
                     </li>
                     <li>
-                      <a href="#." className="mil-light-soft">Careers</a>
+                      <Link href="/contact" className="mil-light-soft">Contact</Link>
                     </li>
                   </ul>
                 </div>
@@ -62,17 +64,17 @@ export default function Footer() {
             <div className="col-md-7 col-lg-6">
               <div className="row justify-content-between">
                 <div className="col-md-6 col-lg-5 mil-mb-60">
-                  <h6 className="mil-muted mil-up mil-mb-30">Canada</h6>
+                  <h6 className="mil-muted mil-up mil-mb-30">Based in</h6>
                   <p className="mil-light-soft mil-up">
-                    71 South Los Carneros Road, California
-                    <span className="mil-no-wrap">+51 174 705 812</span>
+                    {site.location} — working remotely with teams worldwide.
+                    <span className="mil-no-wrap">{site.phone}</span>
                   </p>
                 </div>
                 <div className="col-md-6 col-lg-5 mil-mb-60">
-                  <h6 className="mil-muted mil-up mil-mb-30">Germany</h6>
+                  <h6 className="mil-muted mil-up mil-mb-30">Availability</h6>
                   <p className="mil-light-soft mil-up">
-                    Leehove 40, 2678 MC De Lier, Netherlands
-                    <span className="mil-no-wrap">+31 174 705 811</span>
+                    {site.availability}.
+                    <span className="mil-no-wrap">{site.email}</span>
                   </p>
                 </div>
               </div>
@@ -81,29 +83,16 @@ export default function Footer() {
               <div className="mil-vert-between">
                 <div className="mil-mb-30">
                   <ul className="mil-social-icons mil-up">
-                    <li>
-                      <a href="#." target="_blank" className="social-icon">
-                        <i className="far fa-circle"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#." target="_blank" className="social-icon">
-                        <i className="far fa-circle"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#." target="_blank" className="social-icon">
-                        <i className="far fa-circle"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#." target="_blank" className="social-icon">
-                        <i className="far fa-circle"></i>
-                      </a>
-                    </li>
+                    {socials.map((social) => (
+                      <li key={social.label}>
+                        <a href={social.href} target="_blank" rel="noreferrer" className="social-icon" aria-label={social.label}>
+                          <i className={social.icon}></i>
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-                <p className="mil-light-soft mil-up">© Copyright 2023 - Mil. All Rights Reserved.</p>
+                <p className="mil-light-soft mil-up">© {new Date().getFullYear()} {site.name}. All Rights Reserved.</p>
               </div>
             </div>
           </div>

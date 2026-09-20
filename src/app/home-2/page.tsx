@@ -1,10 +1,13 @@
-/* Converted from the Ashley HTML template — markup preserved verbatim. */
+/* Converted from the Ashley HTML template — markup preserved, copy is mine.
+   The template's "personal" landing, used here as the About page. */
 import Link from "next/link";
-
 import type { Metadata } from "next";
+import { site, socials } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Ashley" };
-
+export const metadata: Metadata = {
+  title: `About | ${site.name}`,
+  description: "Abiodun Prosper — Lagos-based full-stack developer working across TypeScript, React, React Native, Next.js, NestJS and Laravel.",
+};
 
 export default function Page() {
   return (
@@ -21,18 +24,18 @@ export default function Page() {
               <div className="mil-personal-text">
                 <p className="mil-mb-60">Hello! My name is</p>
                 <h1 className="mil-mb-60">
-                  Ashley
+                  Abiodun
                   <br />
-                  Goodman
+                  Prosper
                 </h1>
                 <div className="row justify-content-center">
                   <div className="col-lg-8">
                     <span className="mil-suptitle mil-suptitle-dark mil-mb-60">
-                      Passionately Creating Design Wonders:
+                      Full-stack developer in {site.location},
                       <br />
-                      Unleashing Boundless Creativity
+                      building web and mobile products end to end.
                     </span>
-                    <Link href="/services" className="mil-link mil-dark mil-arrow-place">
+                    <Link href="/team" className="mil-link mil-dark mil-arrow-place">
                       <span>More about me</span>
                     </Link>
                   </div>
@@ -41,39 +44,26 @@ export default function Page() {
             </div>
             <div className="col-lg-6">
               <div className="mil-portrait-frame">
-                <img src="/img/faces/large/1.png" alt="Portrait" />
+                <img src="/img/faces/large/1.png" alt={site.name} />
               </div>
             </div>
           </div>
           <div className="mil-banner-panel">
-            <h5>Designing a Better World Today</h5>
+            <h5>{site.availability}</h5>
             <div className="mil-right">
               <div className="mil-social-frame">
                 <ul className="mil-social-icons mil-dark">
-                  <li>
-                    <a href="#." target="_blank" className="social-icon">
-                      <i className="far fa-circle"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#." target="_blank" className="social-icon">
-                      <i className="far fa-circle"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#." target="_blank" className="social-icon">
-                      <i className="far fa-circle"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#." target="_blank" className="social-icon">
-                      <i className="far fa-circle"></i>
-                    </a>
-                  </li>
+                  {socials.map((social) => (
+                    <li key={social.label}>
+                      <a href={social.href} target="_blank" rel="noreferrer" className="social-icon" aria-label={social.label}>
+                        <i className={social.icon}></i>
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <Link href="/portfolio-3" className="mil-button mil-arrow-place">
-                <span>View pOrtfolio</span>
+                <span>View portfolio</span>
               </Link>
             </div>
           </div>

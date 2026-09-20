@@ -10,7 +10,7 @@ export default function Cursor() {
         </svg>
       </span>
       <div className="mil-more-text">More</div>
-      <div className="mil-choose-text">Сhoose</div>
+      <div className="mil-choose-text">Choose</div>
     </div>
     </>
   );
