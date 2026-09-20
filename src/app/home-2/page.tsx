@@ -30,10 +30,9 @@ export default function Page() {
                 </h1>
                 <div className="row justify-content-center">
                   <div className="col-lg-8">
+                    {/* one line only — two lines run under the panel below */}
                     <span className="mil-suptitle mil-suptitle-dark mil-mb-60">
-                      Full-stack developer in {site.location},
-                      <br />
-                      building web and mobile products end to end.
+                      Full-stack developer, {site.location}
                     </span>
                     <Link href="/team" className="mil-link mil-dark mil-arrow-place">
                       <span>More about me</span>
@@ -44,12 +43,13 @@ export default function Page() {
             </div>
             <div className="col-lg-6">
               <div className="mil-portrait-frame">
-                <img src="/img/faces/large/1.png" alt={site.name} />
+                <img src="/img/photo/prospa2.webp" alt={site.name} />
               </div>
             </div>
           </div>
           <div className="mil-banner-panel">
-            <h5>{site.availability}</h5>
+            {/* kept to roughly the template's length so the panel stays one line */}
+            <h5>Open to remote roles worldwide</h5>
             <div className="mil-right">
               <div className="mil-social-frame">
                 <ul className="mil-social-icons mil-dark">

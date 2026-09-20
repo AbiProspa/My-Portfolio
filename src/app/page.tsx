@@ -101,7 +101,7 @@ export default function Page() {
               </p>
               <div className="mil-about-quote">
                 <div className="mil-avatar mil-up">
-                  <img src="/img/photo/Prospa.jpg" alt="Abiodun Prosper" />
+                  <img src="/img/photo/prospa-about.jpg" alt="Abiodun Prosper" />
                 </div>
                 <h6 className="mil-quote mil-up">
                   Design through
@@ -116,7 +116,7 @@ export default function Page() {
             <div className="mil-about-photo mil-mb-90">
               <div className="mil-lines-place"></div>
               <div className="mil-up mil-img-frame" style={{ paddingBottom: "160%" }}>
-                <img src="/img/photo/Prospa.jpg" alt="Abiodun Prosper" className="mil-scale" data-value-1="1" data-value-2="1.2" />
+                <img src="/img/photo/prospa-about.jpg" alt="Abiodun Prosper" className="mil-scale" data-value-1="1" data-value-2="1.2" />
               </div>
             </div>
           </div>
