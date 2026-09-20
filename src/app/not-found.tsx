@@ -1,4 +1,6 @@
-/* Next.js renders this for unmatched routes; it is the template's 404 page. */
-import NotFoundPage from "./404/page";
+/* Rendered by Next for unmatched routes. */
+import NotFound from "@/components/NotFound";
 
-export default NotFoundPage;
+export default function Page() {
+  return <NotFound />;
+}
