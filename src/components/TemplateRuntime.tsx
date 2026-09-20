@@ -88,7 +88,7 @@ function hover(selector: string, enter: () => void, leave: () => void): Cleanup 
  * `data-value-1` lands on dataset["value-1"], and dataset.value1 is undefined
  * — which silently turns every scale/parallax value into NaN.
  */
-const dataVal = (el: Element, name: string) => el.getAttribute(`data-${name}`);
+const dataVal = (el: Element, name: string) => el.getAttribute(`data-${name}`) ?? undefined;
 
 const NOT_CURSOR_LINKS =
   "a:not(.mil-choose):not(.mil-more):not(.mil-drag):not(.mil-accent-cursor), input, textarea, .mil-accordion-menu";
