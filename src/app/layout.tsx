@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: `${site.name} | ${site.role}`, template: "%s" },
   description:
-    "Abiodun Prosper is a Lagos-based full-stack developer building web and mobile products with TypeScript, React, React Native, Next.js, NestJS and Laravel.",
+    "Abiodun Prosper is a Lagos-based software engineer building web, mobile and AI-enabled products with TypeScript, React, React Native, Next.js, NestJS and Laravel.",
   alternates: { canonical: "/" },
   openGraph: {
     title: `${site.name} | ${site.role}`,
-    description: "Full-stack developer building web and mobile products across fintech, commerce and newcomer services.",
+    description: "Software engineer building web, mobile and AI-enabled products across fintech, commerce and newcomer services.",
     type: "website",
     url: "/",
     siteName: site.name,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.role}`,
-    description: "Full-stack developer building web and mobile products across fintech, commerce and newcomer services.",
+    description: "Software engineer building web, mobile and AI-enabled products across fintech, commerce and newcomer services.",
     creator: "@Abi_Prospa",
   },
 };

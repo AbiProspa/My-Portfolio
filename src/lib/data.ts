@@ -6,7 +6,7 @@
 export const site = {
   name: "Abiodun Prosper",
   logo: "Abi.",
-  role: "Full-Stack Developer",
+  role: "Software Engineer",
   email: "Abiodunprosper07@gmail.com",
   phone: "+234 703 915 7861",
   location: "Lagos, Nigeria",
@@ -370,4 +370,64 @@ export const clients = [
   { name: "Entrant", logo: "/img/partners/entrant.svg", width: "110px" },
   { name: "MaxDrive", logo: "/img/partners/maxdrive.svg", width: "120px" },
   { name: "Yummeals", logo: "/img/partners/yummeals.svg", width: "110px" },
+];
+
+/** Replace these placeholders with client-approved names, roles, photos and quotes. */
+export const testimonials = [
+  {
+    name: "Client 1",
+    role: "Role · Company",
+    initials: "C1",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 2",
+    role: "Role · Company",
+    initials: "C2",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 3",
+    role: "Role · Company",
+    initials: "C3",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 4",
+    role: "Role · Company",
+    initials: "C4",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 5",
+    role: "Role · Company",
+    initials: "C5",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 6",
+    role: "Role · Company",
+    initials: "C6",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 7",
+    role: "Role · Company",
+    initials: "C7",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
+  {
+    name: "Client 8",
+    role: "Role · Company",
+    initials: "C8",
+    image: "",
+    quote: "Add an approved client testimonial here.",
+  },
 ];

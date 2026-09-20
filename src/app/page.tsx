@@ -1,6 +1,7 @@
 /* Converted from the Ashley HTML template — markup preserved verbatim. */
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
 
 import type { Metadata } from "next";
 import { clients, projects, services, site } from "@/lib/data";
@@ -8,7 +9,7 @@ import { clients, projects, services, site } from "@/lib/data";
 export const metadata: Metadata = {
   title: `${site.name} | ${site.role}`,
   description:
-    "Abiodun Prosper is a Lagos-based full-stack developer building web and mobile products with TypeScript, React, React Native, Next.js, NestJS and Laravel.",
+    "Abiodun Prosper is a Lagos-based software engineer building web, mobile and AI-enabled products with TypeScript, React, React Native, Next.js, NestJS and Laravel.",
 };
 
 
@@ -33,16 +34,13 @@ export default function Page() {
         <div className="container">
           <div className="mil-banner-content mil-up">
             <h1 className="mil-muted mil-mb-60">
-              Full-Stack
-              <span className="mil-thin">Developer</span>
-              <br />
-              Building
-              <span className="mil-thin">Digital Products</span>
+              Software
+              <span className="mil-thin">Engineer</span>
             </h1>
             <div className="row">
               <div className="col-md-7 col-lg-5">
                 <p className="mil-light-soft mil-mb-60">
-                  I&apos;m Abiodun Prosper, a Lagos-based full-stack developer. I build web and mobile products for fintech and startup teams across TypeScript, React, React Native, Next.js and Node.js.
+                  Building web, mobile, and AI-enabled products from idea to release. I&apos;m Abiodun Prosper, a software engineer in Lagos, Nigeria, working across TypeScript, React, React Native, Next.js, Node.js and NestJS.
                 </p>
               </div>
             </div>
@@ -144,7 +142,7 @@ export default function Page() {
             </div>
             <div className="mil-complex-text justify-content-center mil-up mil-mb-15">
               <span className="mil-text-image">
-                <img src="/img/photo/2.jpg" alt="" />
+                <img src="/img/photo/prospa-at-work.jpg" alt="Abiodun Prosper working at his desk" />
               </span>
               <h2 className="mil-h1 mil-muted mil-center">
                 Product
@@ -184,7 +182,7 @@ export default function Page() {
     <section>
       <div className="container mil-p-120-30">
         <div className="row justify-content-between align-items-center">
-          <div className="col-lg-5 col-xl-4">
+          <div className="col-lg-4">
             <div className="mil-mb-90">
               <h2 className="mil-up mil-mb-60">
                 Selected
@@ -209,13 +207,13 @@ export default function Page() {
               </h4>
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-7">
             <div className="mil-team-list">
               <div className="mil-lines-place"></div>
               <div className="row mil-mb-60">
                 <div className="col-sm-6">
                   {[featured[0], featured[2]].map((project) => (
-                    <div className="mil-team-card mil-up mil-mb-30" key={project.route}>
+                    <div className="mil-team-card mil-selected-project-card mil-up mil-mb-30" key={project.route}>
                       <img src={project.cover} alt={project.title} />
                       <div className="mil-description">
                         <div className="mil-secrc-text">
@@ -234,7 +232,7 @@ export default function Page() {
                     Selected client projects
                   </p>
                   {[featured[1], featured[3]].map((project) => (
-                    <div className="mil-team-card mil-up mil-mb-30" key={project.route}>
+                    <div className="mil-team-card mil-selected-project-card mil-up mil-mb-30" key={project.route}>
                       <img src={project.cover} alt={project.title} />
                       <div className="mil-description">
                         <div className="mil-secrc-text">
@@ -254,6 +252,7 @@ export default function Page() {
       </div>
     </section>
     {/* selected projects end */}
+    <Testimonials />
     {/* clients */}
     <div className="mil-soft-bg">
       <div className="container mil-p-0-120">

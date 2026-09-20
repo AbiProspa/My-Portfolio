@@ -9,7 +9,7 @@ import { education, resume, site, skills } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Experience | ${site.name}`,
-  description: "Professional experience, technical skills, education and certifications for Abiodun Prosper, full-stack developer in Lagos, Nigeria.",
+  description: "Professional experience, technical skills, education and certifications for Abiodun Prosper, software engineer in Lagos, Nigeria.",
 };
 
 export default function Page() {
@@ -57,7 +57,7 @@ export default function Page() {
                 <span className="mil-thin">to release</span>
               </h2>
               <p className="mil-up mil-mb-30">
-                I&apos;m a full-stack developer with 5+ years building digital products, and hands-on software development experience since 2020. My work spans fintech, eCommerce and edtech — React, Next.js, Vue and React Native on the front, with Node.js, NestJS, Express and Laravel behind them.
+                I&apos;m a software engineer with 5+ years building digital products, and hands-on software development experience since 2020. My work spans fintech, eCommerce and edtech — React, Next.js, Vue and React Native on the front, with Node.js, NestJS, Express and Laravel behind them.
               </p>
               <p className="mil-up mil-mb-60">
                 That includes payment integrations, databases, authentication and AI-powered workflows, supported by a UI/UX foundation and a product-minded approach from first sketch to deployed code.
@@ -73,7 +73,7 @@ export default function Page() {
             <div className="mil-about-photo mil-mb-90">
               <div className="mil-lines-place"></div>
               <div className="mil-up mil-img-frame" style={{ paddingBottom: "130%" }}>
-                <img src="/img/photo/2.jpg" alt={site.name} className="mil-scale" data-value-1="1" data-value-2="1.2" />
+                <img src="/img/photo/prospa-about.jpg" alt={site.name} className="mil-scale" data-value-1="1" data-value-2="1.2" />
               </div>
             </div>
           </div>

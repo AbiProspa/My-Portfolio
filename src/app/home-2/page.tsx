@@ -6,7 +6,7 @@ import { site, socials } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `About | ${site.name}`,
-  description: "Abiodun Prosper — Lagos-based full-stack developer working across TypeScript, React, React Native, Next.js, NestJS and Laravel.",
+  description: "Abiodun Prosper — Lagos-based software engineer working across TypeScript, React, React Native, Next.js, NestJS and Laravel.",
 };
 
 export default function Page() {
@@ -32,7 +32,7 @@ export default function Page() {
                   <div className="col-lg-8">
                     {/* one line only — two lines run under the panel below */}
                     <span className="mil-suptitle mil-suptitle-dark mil-mb-60">
-                      Full-stack developer, {site.location}
+                      Software Engineer, {site.location}
                     </span>
                     <Link href="/team" className="mil-link mil-dark mil-arrow-place">
                       <span>More about me</span>

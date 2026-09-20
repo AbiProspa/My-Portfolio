@@ -9,7 +9,7 @@ import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Contact | ${site.name}`,
-  description: "Get in touch with Abiodun Prosper about full-stack engineering roles and product work.",
+  description: "Get in touch with Abiodun Prosper about software engineering roles and product work.",
 };
 
 export default function Page() {
