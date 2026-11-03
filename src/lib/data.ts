@@ -328,11 +328,11 @@ export const resume = [
       "Develop a mobile-first internal banking operations application with React Native and Next.js, integrated with Node.js and Express services. Workflow and UI refinements, with Redux state management, improved transaction completion speed by 30%.",
   },
   {
-    years: "Aug 2023 — Sep 2025",
-    role: "Full-Stack Developer",
+    years: "Aug 2023 — Present",
+    role: "Lead Engineer (Contract · Remote)",
     company: "Devnnova",
     summary:
-      "Built the AltBank and Entrant products across React Native, Next.js and NestJS behind a shared API gateway, including the Entrant CMS admin portal for country-specific content. Integrated OpenAI and Claude APIs into customer-support and WhatsApp automation workflows using n8n.",
+      "Lead engineering for Entrant across a React Native mobile app, Next.js web platform, Next.js admin portal and NestJS backend. Led the consolidation of a legacy Java/Spring Boot backend into a single NestJS + PostgreSQL service with 40+ feature modules, and integrated OpenAI and Claude APIs into support and WhatsApp automation workflows.",
   },
   {
     years: "Jan 2022 — Aug 2023",
